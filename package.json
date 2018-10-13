@@ -1,0 +1,29 @@
+{
+  "name": "docker-music",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "dev": "DEBUG=docker-music:* NODE_ENV=development nodemon --inspect app.js",
+    "db:migrate": "NODE_ENV=development yarn knex migrate:latest",
+    "db:seed": "NODE_ENV=development yarn knex seed:run"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bookshelf": "^0.10.4",
+    "chalk": "^2.1.0",
+    "debug": "^4.1.0",
+    "express": "^4.15.4",
+    "fs-extra": "^4.0.1",
+    "knex": "^0.13.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.11.1"
+  }
+}
