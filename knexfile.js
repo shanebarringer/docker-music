@@ -3,13 +3,16 @@ const path = require("path");
 
 module.exports = {
   development: {
-    client: "postgresql",
+    client: "pg",
     debug: false,
     connection: {
-      host: "127.0.0.1",
-      database: `${db}_dev`,
+      host: "postgres",
+      database: process.env.DB_NAME,
+      password: process.env.DB_PASSWORD,
+      user: process.env.DB_USER,
       charset: "utf8"
     },
+    pool: { min: 0, max: 10 },
     migrations: {
       directory: path.join("db", "migrations")
     },
@@ -19,9 +22,9 @@ module.exports = {
   },
 
   test: {
-    client: "postgresql",
+    client: "pg",
     connection: {
-      host: "127.0.0.1",
+      host: "postgres",
       database: `${db}_test`,
       charset: "utf8"
     },
@@ -34,7 +37,7 @@ module.exports = {
   },
 
   production: {
-    client: "postgresql",
+    client: "pg",
     connection: {
       host: process.env.DATABASE_HOST,
       database: process.env.DATABASE_NAME,
