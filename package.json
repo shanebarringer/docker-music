@@ -10,8 +10,8 @@
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "dev": "NODE_ENV=development nodemon app.js",
-    "db:migrate": "NODE_ENV=development ./node_modules/knex/bin/cli.js migrate:latest",
-    "db:seed": "NODE_ENV=development node ./node_modules/knex/bin/cli.js seed:run"
+    "db:migrate": "./node_modules/knex/bin/cli.js migrate:latest --env development",
+    "db:seed": "./node_modules/knex/bin/cli.js seed:run --env development"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
