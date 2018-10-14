@@ -5,9 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "dev": "DEBUG=docker-music:* NODE_ENV=development nodemon --inspect app.js",
-    "db:migrate": "NODE_ENV=development yarn knex migrate:latest",
-    "db:seed": "NODE_ENV=development yarn knex seed:run"
+    "dev": "NODE_ENV=development nodemon app.js",
+    "db:migrate": "NODE_ENV=development npm run knex migrate:latest",
+    "db:seed": "NODE_ENV=development npm run knex seed:run"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
