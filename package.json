@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "license": "MIT",
+  "description": "API used in the Docker for JS Developers Talk",
+  "repository": {
+    "url": "https://github.com/shanebarringer/docker-music"
+  },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "dev": "NODE_ENV=development nodemon app.js",
