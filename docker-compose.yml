@@ -11,8 +11,6 @@ services:
       - dm_network
     depends_on:
       - postgres
-    links:
-      - postgres
     environment:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_USER=${DB_USER}
