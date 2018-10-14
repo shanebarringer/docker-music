@@ -1,6 +1,6 @@
 version: "3.1"
 services:
-  music_api:
+  api:
     build: .
     volumes:
       - .:/usr/app
@@ -8,7 +8,7 @@ services:
     ports:
       - "3001:3001"
     networks:
-      - music_network
+      - dm_network
     depends_on:
       - postgres
     links:
@@ -17,7 +17,6 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_USER=${DB_USER}
       - DB_NAME=${DB_NAME}
-      - RESET_DB=${RESET_DB}
 
   postgres:
     image: postgres:latest
@@ -32,7 +31,7 @@ services:
     expose:
       - "5432"
     networks:
-      - music_network
+      - dm_network
 
   adminer:
     image: adminer
@@ -40,11 +39,11 @@ services:
     ports:
       - 8080:8080
     networks:
-      - music_network
+      - dm_network
 
 volumes:
   ? postgres-data
 
 networks:
-  music_network:
+  dm_network:
     driver: bridge
